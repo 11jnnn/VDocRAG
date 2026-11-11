@@ -10,7 +10,7 @@ from vdocrag.vdocretriever.arguments import DataArguments
 import logging
 logger = logging.getLogger(__name__)
 
-
+#加载训练数据，并在训练时提供一条条“问题—相关页面图像”配对样本。
 class TrainDataset(Dataset):
     def __init__(self, data_args: DataArguments, trainer = None):
         self.data_args = data_args
@@ -95,7 +95,7 @@ class TrainDataset(Dataset):
     return query, image
     
 
-
+#读取需要编码的问题或文档图像，供检索模型把它们转换成向量。
 class EncodeDataset(Dataset):
     def __init__(self, data_args: DataArguments):
         self.data_args = data_args
